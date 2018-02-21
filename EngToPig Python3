@@ -1,0 +1,32 @@
+def engtopig(sentence):
+    #list of vowels
+    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+    #Turn sentence into list of lower case words at the spaces
+    words = sentence.lower().split(' ')
+    piglatin = []
+    s = 0
+    
+    # Iterating through each word in the sentence
+    for word in words:
+        length = len(word)
+        print(word)
+        #Iterating through each vowel in vowels
+        for vowel in vowels:
+            #Comparing that vowel to each letter of the word
+            for n in range(length):
+                if not word[n]==vowel:
+                    continue
+                else:
+                    #creates a cut point when it has reached a vowel
+                    s=n
+                    
+                    print(s)
+                    break
+        #assembles into pig latin, format of square brackets makes only certain parts upto and before split be looked at
+        i= (word[s:]) + (word[:s]) + ('ay')
+        #adds the finished piglatin word onto the piglatin list
+        piglatin.append(i)
+    #prints piglatin list
+    print (piglatin)
+
+engtopig('Hi chris I need vowels in this essay')
